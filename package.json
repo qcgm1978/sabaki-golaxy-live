@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
-    "build": "echo \"No build needed for this module\""
+    "build": "echo \"No build needed for this module\"",
+    "release": "node publish.js"
   },
   "keywords": [
     "go",
