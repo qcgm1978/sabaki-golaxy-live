@@ -1,6 +1,6 @@
 {
   "name": "sabaki-golaxy-live",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A Golaxy live game integration module for Sabaki Go board",
   "main": "src/index.js",
   "type": "module",
@@ -21,7 +21,8 @@
   "license": "MIT",
   "dependencies": {
     "@sabaki/sgf": "^3.4.7",
-    "node-fetch": "^3.3.2"
+    "node-fetch": "^3.3.2",
+    "preact": "^10.19.3"
   },
   "devDependencies": {
     "jest": "^29.7.0"
