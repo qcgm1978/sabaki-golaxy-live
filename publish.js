@@ -32,7 +32,7 @@ try {
   execSync('git push', { stdio: 'inherit' });
 
   console.log('Pushing tags to origin...');
-  execSync('git push --tags', { stdio: 'inherit' });
+  execSync('git push --tags --force', { stdio: 'inherit' });
 
   console.log('\n✅ Release completed successfully!');
   console.log(`Version ${version} has been committed, tagged, and pushed to GitHub.`);
