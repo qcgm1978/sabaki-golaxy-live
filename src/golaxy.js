@@ -1,5 +1,5 @@
-import SGF from '@sabaki/sgf';
-import GoCommunicate from './GoCommunicate.js';
+const SGF = require('@sabaki/sgf');
+const GoCommunicate = require('./GoCommunicate.js').default;
 
 // 简单的i18n替代实现
 const i18n = {
@@ -27,7 +27,7 @@ const i18n = {
   }
 };
 
-export default class Golaxy extends GoCommunicate {
+class Golaxy extends GoCommunicate {
   constructor(
     prop = 'name',
     today = new Date().toISOString().split('T')[0],
@@ -396,15 +396,23 @@ export default class Golaxy extends GoCommunicate {
 }
 
 // 创建默认实例
-export const golaxy = new Golaxy();
+const golaxy = new Golaxy();
 
-export async function getLiveReports(name = '', page = 0) {
+async function getLiveReports(name = '', page = 0) {
   const reports = await golaxy.getLiveReports(name, page);
   return reports;
 }
 
-export async function syncGolaxyOrYikeLizban(liveIds, is_live = true) {
+async function syncGolaxyOrYikeLizban(liveIds, is_live = true) {
   golaxy.isLive = is_live;
   const reports = await golaxy.syncGolaxyOrYikeLizban(liveIds);
   return reports;
 }
+
+module.exports = {
+  default: Golaxy,
+  Golaxy,
+  golaxy,
+  getLiveReports,
+  syncGolaxyOrYikeLizban
+};

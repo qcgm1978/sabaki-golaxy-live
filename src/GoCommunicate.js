@@ -1,6 +1,6 @@
-import fetch from 'node-fetch';
+const fetch = require('node-fetch');
 
-export default class GoCommunicate {
+class GoCommunicate {
   constructor() {
     this.enableSyncSgf = false;
     this.requestInterval = 30000;
@@ -73,3 +73,5 @@ export default class GoCommunicate {
     this.restartRequestGolaxyOrYikeMove();
   }
 }
+
+module.exports = { default: GoCommunicate, GoCommunicate };

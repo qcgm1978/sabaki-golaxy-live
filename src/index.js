@@ -1,11 +1,18 @@
 // 导出golaxy核心功能
-export { default as Golaxy, golaxy, getLiveReports, syncGolaxyOrYikeLizban } from './golaxy.js';
+const golaxyModule = require('./golaxy.js');
+const GoCommunicateModule = require('./GoCommunicate.js');
+const golaxyAgentModule = require('./golaxyAgent.js');
+const GolaxyLiveWidgetModule = require('./GolaxyLiveWidget.js');
 
-// 导出GoCommunicate基类
-export { default as GoCommunicate } from './GoCommunicate.js';
-
-// 导出golaxyAgent相关功能
-export { GolaxyLiveReportsAgent, AGENT_STATES, ERROR_TYPES, TOOL_TYPES } from './golaxyAgent.js';
-
-// 导出GolaxyLiveWidget组件
-export { default as GolaxyLiveWidget } from './GolaxyLiveWidget.js';
+module.exports = {
+  Golaxy: golaxyModule.default,
+  golaxy: golaxyModule.golaxy,
+  getLiveReports: golaxyModule.getLiveReports,
+  syncGolaxyOrYikeLizban: golaxyModule.syncGolaxyOrYikeLizban,
+  GoCommunicate: GoCommunicateModule.default,
+  GolaxyLiveReportsAgent: golaxyAgentModule.GolaxyLiveReportsAgent,
+  AGENT_STATES: golaxyAgentModule.AGENT_STATES,
+  ERROR_TYPES: golaxyAgentModule.ERROR_TYPES,
+  TOOL_TYPES: golaxyAgentModule.TOOL_TYPES,
+  GolaxyLiveWidget: GolaxyLiveWidgetModule.default
+};

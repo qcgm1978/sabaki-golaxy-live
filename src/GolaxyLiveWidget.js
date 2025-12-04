@@ -1,5 +1,5 @@
-import {h, Component} from 'preact';
-import {getLiveReports, syncGolaxyOrYikeLizban, golaxy} from './golaxy.js';
+const {h, Component} = require('preact');
+const {getLiveReports, syncGolaxyOrYikeLizban, golaxy} = require('./golaxy.js');
 
 class GolaxyLiveWidget extends Component {
   constructor(props) {
@@ -146,9 +146,11 @@ class GolaxyLiveWidget extends Component {
         ])
       ]),
 
-      h('div', {style: {maxHeight: '400px', overflowY: 'auto'}}, [
+      h('div', {style: {maxHeight: '75vh', overflowY: 'auto'}}, [
         isLoading ? h('div', {style: {padding: '20px', textAlign: 'center'}}, i18n.loading) :
-        h('div', {className: 'golaxy-live-games-list'}, [
+        h('div', {className: 'golaxy-live-games-list',style: {
+                  backgroundColor: 'white',
+                  }}, [
           liveGames.length > 0 ?
             liveGames.map(game =>
               h('div', {
@@ -215,4 +217,4 @@ class GolaxyLiveWidget extends Component {
   }
 }
 
-export default GolaxyLiveWidget;
+module.exports = GolaxyLiveWidget;

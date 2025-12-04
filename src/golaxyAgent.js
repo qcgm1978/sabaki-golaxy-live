@@ -1,4 +1,4 @@
-import {getLiveReports} from './golaxy.js';
+const {getLiveReports} = require('./golaxy.js');
 
 // 简单的Agent类实现
 class Agent {
@@ -43,7 +43,7 @@ const TOOL_TYPES = {
 };
 
 // Golaxy直播报告智能体类
-export class GolaxyLiveReportsAgent extends Agent {
+class GolaxyLiveReportsAgent extends Agent {
   constructor() {
     super(
       'golaxy-live-reports-agent',
@@ -130,4 +130,9 @@ export class GolaxyLiveReportsAgent extends Agent {
   }
 }
 
-export {AGENT_STATES, ERROR_TYPES, TOOL_TYPES};
+module.exports = {
+  GolaxyLiveReportsAgent,
+  AGENT_STATES,
+  ERROR_TYPES,
+  TOOL_TYPES
+};
