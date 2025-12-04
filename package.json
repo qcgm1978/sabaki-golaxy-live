@@ -5,7 +5,7 @@
   "main": "src/index.js",
   "type": "module",
   "scripts": {
-    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
+    "test": "node --experimental-vm-modules test/module-test.js",
     "build": "echo \"No build needed for this module\"",
     "release": "node publish.js"
   },
