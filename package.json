@@ -1,13 +1,16 @@
 {
   "name": "sabaki-golaxy-live",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A Golaxy live game integration module for Sabaki Go board",
   "main": "src/index.js",
   "type": "module",
   "scripts": {
     "test": "node --experimental-vm-modules test/module-test.js",
     "build": "echo \"No build needed for this module\"",
-    "release": "node publish.js"
+    "release": "node publish.js",
+    "release:major": "node publish.js major",
+    "release:minor": "node publish.js minor",
+    "release:patch": "node publish.js patch"
   },
   "keywords": [
     "go",
