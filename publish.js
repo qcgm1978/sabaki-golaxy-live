@@ -17,6 +17,14 @@ try {
   console.log('Committing changes...');
   execSync(`git commit -m "Release version ${version}"`, { stdio: 'inherit' });
 
+  console.log('Checking if git tag exists...');
+  const tagExists = execSync(`git tag -l v${version}`).toString().trim() === `v${version}`;
+  
+  if (tagExists) {
+    console.log('Git tag already exists, updating it...');
+    execSync(`git tag -d v${version}`, { stdio: 'inherit' });
+  }
+  
   console.log('Creating git tag...');
   execSync(`git tag v${version}`, { stdio: 'inherit' });
 
