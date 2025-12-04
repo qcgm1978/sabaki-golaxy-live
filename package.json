@@ -1,6 +1,6 @@
 {
   "name": "sabaki-golaxy-live",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A Golaxy live game integration module for Sabaki Go board",
   "main": "src/index.js",
   "scripts": {
