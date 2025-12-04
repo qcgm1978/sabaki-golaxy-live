@@ -1,0 +1,75 @@
+import fetch from 'node-fetch';
+
+export default class GoCommunicate {
+  constructor() {
+    this.enableSyncSgf = false;
+    this.requestInterval = 30000;
+    this.requestTimer = null;
+    this.lastMove = null;
+    this.currentGameId = null;
+  }
+
+  async requestJson(url, options = {}) {
+    const defaultOptions = {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    };
+    const response = await fetch(url, {...defaultOptions, ...options});
+    return await response.json();
+  }
+
+  async syncSgf(gameId, sgfContent) {
+    // 同步SGF到应用中
+    console.log(`同步游戏 ${gameId} 的SGF内容`);
+    // 这里将由使用模块的应用来实现具体的SGF同步逻辑
+  }
+
+  restartRequestGolaxyOrYikeMove() {
+    if (this.requestTimer) {
+      clearInterval(this.requestTimer);
+    }
+    this.requestTimer = setInterval(() => {
+      if (this.enableSyncSgf && this.currentGameId) {
+        this.requestGolaxyOrYikeMove(
+          this.currentGameId,
+          this.lastMoveNum,
+          this.lastMove,
+          this.playerBlack,
+          this.playerWhite
+        );
+      } else {
+        clearInterval(this.requestTimer);
+      }
+    }, this.requestInterval);
+  }
+
+  async requestGolaxyOrYikeMove(
+    gameId,
+    lastMoveNum,
+    lastMove,
+    playerBlack,
+    playerWhite,
+    isGolaxy = true
+  ) {
+    // 这个方法将在Golaxy类中被重写
+  }
+
+  stopSync() {
+    this.enableSyncSgf = false;
+    if (this.requestTimer) {
+      clearInterval(this.requestTimer);
+      this.requestTimer = null;
+    }
+  }
+
+  startSync(gameId, lastMoveNum, lastMove, playerBlack, playerWhite) {
+    this.currentGameId = gameId;
+    this.lastMoveNum = lastMoveNum;
+    this.lastMove = lastMove;
+    this.playerBlack = playerBlack;
+    this.playerWhite = playerWhite;
+    this.enableSyncSgf = true;
+    this.restartRequestGolaxyOrYikeMove();
+  }
+}

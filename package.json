@@ -1,0 +1,31 @@
+{
+  "name": "sabaki-golaxy-live",
+  "version": "1.0.0",
+  "description": "A Golaxy live game integration module for Sabaki Go board",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
+    "build": "echo \"No build needed for this module\""
+  },
+  "keywords": [
+    "go",
+    "baduk",
+    "weiqi",
+    "golaxy",
+    "live",
+    "sabaki"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@sabaki/sgf": "^3.4.7",
+    "node-fetch": "^3.3.2"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
